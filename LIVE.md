@@ -9,9 +9,9 @@ gets there, and how to fix it when it breaks.
 
 | What | URL |
 | --- | --- |
-| **Homepage** | **<https://nsds.imswarnil.com/>** |
-| Styleguide | <https://nsds.imswarnil.com/preview/index.html> |
-| Sitemap | <https://nsds.imswarnil.com/sitemap.xml> |
+| **Homepage** | **<https://sfdc.imswarnil.com/>** |
+| Styleguide | <https://sfdc.imswarnil.com/preview/index.html> |
+| Sitemap | <https://sfdc.imswarnil.com/sitemap.xml> |
 | GitHub Pages origin | <https://imswarnil.github.io/NSDS-Design-System/> |
 | Repository | <https://github.com/imswarnil/NSDS-Design-System> |
 | Issues | <https://github.com/imswarnil/NSDS-Design-System/issues> |
@@ -25,7 +25,7 @@ name two products import by, and renaming it breaks both for nothing.
 
 ### The custom domain
 
-`nsds.imswarnil.com` is a **repo-level** custom domain, which means the site is
+`sfdc.imswarnil.com` is a **repo-level** custom domain, which means the site is
 served at the **domain root** (`/`), not under a repo subpath. Two things pin
 it, and both are required:
 
@@ -44,7 +44,7 @@ it, and both are required:
    `imswarnil.github.io` on the next publish. Setting it in Settings → Pages
    alone is not enough. Override for another host with `SITE_URL=…`.
 
-Then: Settings → Pages → Custom domain → `nsds.imswarnil.com`, and tick
+Then: Settings → Pages → Custom domain → `sfdc.imswarnil.com`, and tick
 **Enforce HTTPS** once the certificate is issued (can take up to an hour).
 
 **Account-level domain.** The account `imswarnil` also has an account-level
@@ -61,7 +61,7 @@ generator, or a CSS `url()`.
 
 Deep links are shareable: the styleguide is multi-page (one URL per foundation
 section, component and doc), e.g.
-`https://nsds.imswarnil.com/preview/color.html`.
+`https://sfdc.imswarnil.com/preview/color.html`.
 
 ---
 
@@ -78,7 +78,7 @@ and the git history are all excluded. What ships:
 | `/` | `index.html` — the homepage: what NSDS is, the numbers, and a linked index of all 165 generated pages |
 | `/robots.txt` | crawl policy + the sitemap pointer |
 | `/sitemap.xml` | the homepage and every generated page |
-| `/CNAME` | `nsds.imswarnil.com` — what actually pins the custom domain |
+| `/CNAME` | `sfdc.imswarnil.com` — what actually pins the custom domain |
 | `/preview/` | the generated multi-page styleguide (home, one page per foundation, one per specimen group) |
 | `/dist/` | the flat CSS bundle `nsds.css` + `.min.css` the preview links |
 | `/styles.css` | the entry stylesheet the specimen cards link as `../styles.css` |
@@ -94,7 +94,7 @@ and the git history are all excluded. What ships:
 
 `/` used to be a meta-refresh into `preview/index.html`. A redirect is not a
 page: a crawler follows it, indexes the target, and the domain itself has no
-entry in any index — `nsds.imswarnil.com` would be a URL nothing describes.
+entry in any index — `sfdc.imswarnil.com` would be a URL nothing describes.
 
 So the root is a real document with its own content, and — the part that
 matters — a complete linked index of all 165 generated pages. That list is the
@@ -265,7 +265,7 @@ theme or the Next.js LMS.
 | Site 404s entirely | Pages source not set to "GitHub Actions", or no successful `deploy` run yet | Settings → Pages → Source: GitHub Actions; then push to `main` |
 | Page loads, all CSS missing | a root-absolute `/…` path crept in | make the reference relative; re-run `npm run site` and check locally |
 | Domain reverts to `imswarnil.github.io` after a deploy | the artifact shipped no `CNAME` | confirm `build-site.mjs` still writes `_site/CNAME`; it is read from the artifact, not from repo settings |
-| Custom domain 404s or shows a cert error right after setup | DNS not propagated, or the record is proxied | `dig nsds.imswarnil.com CNAME` must return `imswarnil.github.io`; set the record to DNS-only and wait for the cert |
+| Custom domain 404s or shows a cert error right after setup | DNS not propagated, or the record is proxied | `dig sfdc.imswarnil.com CNAME` must return `imswarnil.github.io`; set the record to DNS-only and wait for the cert |
 | A page is missing from the sitemap | it isn't in `preview/pages.json` | it is generated from `PAGES` in `build-preview.mjs` — if the page exists there, rebuild |
 | Icons render as empty boxes | `dist/` font `url()` paths weren't rebased for the bundle's location | check the woff2 paths inside `dist/nsds.css` and rebuild |
 | Specimen iframes are blank | the `.card.html` wasn't copied — `build-site.mjs` only walks `*.card.html` and skips dot-dirs, `node_modules`, `dist`, `preview`, `_site` | confirm the filename ends in `.card.html` and sits outside those dirs |
@@ -288,6 +288,6 @@ theme or the Next.js LMS.
   but update any hardcoded link you own, and your own clone:
   `git remote set-url origin https://github.com/imswarnil/NSDS-Design-System.git`
 - **Domain history:** the site moved from `dev.imswarnil.com/NS-Design-System/`
-  to `nsds.imswarnil.com/` (a repo-level custom domain, served at the root).
+  to `sfdc.imswarnil.com/` (a repo-level custom domain, served at the root).
   The old path is not redirected — GitHub Pages cannot redirect between two
   domains it serves — so fix any link you control.
