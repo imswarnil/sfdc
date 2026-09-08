@@ -170,7 +170,7 @@ Do not hand-tune chart hues. The palette was solved against six computable check
 
 ## Deploy
 
-`main` → GitHub Actions → GitHub Pages at <https://nsds.imswarnil.com/>. `gulp site` stages `_site/`, and `build-site.mjs` writes the homepage, `robots.txt`, `sitemap.xml` and **`CNAME`** — on an Actions deploy Pages reads the custom domain out of the artifact, so a build that ships no CNAME drops the domain on the next publish. `SITE_URL` overrides the host for canonicals, sitemap and CNAME.
+`main` → GitHub Actions → GitHub Pages at <https://sfdc.imswarnil.com/>. `gulp site` stages `_site/`, and `build-site.mjs` writes the homepage, `robots.txt`, `sitemap.xml` and **`CNAME`** — on an Actions deploy Pages reads the custom domain out of the artifact, so a build that ships no CNAME drops the domain on the next publish. `SITE_URL` overrides the host for canonicals, sitemap and CNAME.
 
 `mcp/server.mjs` is the **MCP server** — `npx nsds-mcp`, or `npm run mcp`. Six tools (`list_components`, `get_component`, `search_classes`, `list_tokens`, `get_guide`, `get_setup`) reading the real artifacts, with **no dependencies**: it speaks JSON-RPC over stdio directly rather than pulling an SDK into a package whose whole job is to ship CSS. Test it with `echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | node mcp/server.mjs`.
 

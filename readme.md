@@ -1,6 +1,6 @@
 # NSDS — NS Design System
 
-**Live → <https://nsds.imswarnil.com/>** — published from `main` on every push.
+**Live → <https://sfdc.imswarnil.com/>** — published from `main` on every push.
 See **[`LIVE.md`](LIVE.md)** for the URLs, what is on the site, how the deploy
 works, and how to fix it when it breaks, and **[`OBS.md`](OBS.md)** for building
 the lesson and live-stream scenes in OBS Studio.
@@ -31,7 +31,7 @@ the system it documents.
 
 ### The styleguide
 
-[![Overview](docs/images/overview.jpg)](https://nsds.imswarnil.com/)
+[![Overview](docs/images/overview.jpg)](https://sfdc.imswarnil.com/)
 
 262 tokens, 1,638 classes, 153 components. (`gulp build` prints the current
 figures on every run — take them from there rather than from this line.) The sidebar collapses to the section
@@ -244,7 +244,7 @@ attribute, and the `ns-theme` storage key — are documented and enforced in
 ## Preview it
 
 The current `main` is always live at
-**<https://nsds.imswarnil.com/>** — nothing to install if you
+**<https://sfdc.imswarnil.com/>** — nothing to install if you
 only want to look. To run it locally, the design system stands on its own — no
 Ghost, no Next.js, nothing but Node:
 
@@ -335,7 +335,7 @@ broken relative paths, root-absolute assets, duplicate ids and dangling
   colorblind checks, stale `dist/`), then `git diff --exit-code` to prove no
   generated file was hand-edited.
 - **deploy** — pushes to `main`: `gulp site` → publish `_site/` to GitHub
-  Pages at <https://nsds.imswarnil.com/>, so the team always has a hosted
+  Pages at <https://sfdc.imswarnil.com/>, so the team always has a hosted
   preview of exactly what `main` ships. Already configured (Settings → Pages →
   Source: "GitHub Actions"); a failing check blocks the deploy. The build
   writes `_site/CNAME`, `robots.txt` and `sitemap.xml`, and a real indexable

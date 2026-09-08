@@ -9,9 +9,9 @@
 #           fail here, not in a consumer's bug report.
 #
 #   deploy  pushes to main only — builds the static site and publishes it to
-#           GitHub Pages at https://nsds.imswarnil.com/. Enable once in repo
+#           GitHub Pages at https://sfdc.imswarnil.com/. Enable once in repo
 #           settings: Settings → Pages → Source: "GitHub Actions", then set
-#           the custom domain to nsds.imswarnil.com. The build also writes
+#           the custom domain to sfdc.imswarnil.com. The build also writes
 #           _site/CNAME, which is what actually pins the domain on an Actions
 #           deploy — settings alone are not enough.
 #
